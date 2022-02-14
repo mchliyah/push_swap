@@ -6,7 +6,7 @@
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 15:24:09 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/02/13 22:18:00 by mchliyah         ###   ########.fr       */
+/*   Updated: 2022/02/14 18:08:01 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typedef struct s_stack
 {
 	int	*dt;
 	int	l;
-	int	top;
+	int	sortd;
 }	t_stack;
 
 t_stack	initial_stack(t_stack stack, int ac, char **av);

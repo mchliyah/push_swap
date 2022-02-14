@@ -6,7 +6,7 @@
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 19:22:32 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/02/11 19:44:15 by mchliyah         ###   ########.fr       */
+/*   Updated: 2022/02/14 18:08:01 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	push(t_stack *stack, int x)
 	int		i;
 
 	i = 0;
-	if (stack->l <= stack->top)
+	if (stack->l <= stack->sortd)
 	{
 		stack->l = stack->l + 1;
 		stack->dt[stack->l - 1] = x;

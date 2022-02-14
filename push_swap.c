@@ -6,7 +6,7 @@
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 15:21:21 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/02/13 22:52:39 by mchliyah         ###   ########.fr       */
+/*   Updated: 2022/02/14 18:16:15 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	main(int ac, char **av)
 			j = 0;
 			while (j < a.l)
 			{
-				if (j + 1 < a.l && arr[j] > arr[j + 1])
+				if (j + 1 < a.l && arr[j] < arr[j + 1])
 				{
 					tmp = arr[j];
 					arr[j] = arr[j + 1];
@@ -51,26 +51,27 @@ int	main(int ac, char **av)
 			i++;
 		}
 		med = arr[a.l / 2];
-		while (a.l > 1)
+		// while (a.l > 1)
+		// {
+		while (b.l <= a.l / 2)
 		{
-			while (b.l <= a.l / 2)
+			if (a.dt[a.l - 1] < med)
+				ft_push(&a, &b, 'b');
+			else
 			{
-				if (a.dt[a.l - 1] < med)
-					ft_push(&a, &b, 'b');
+				if (b.l > 1 && b.dt[b.l - 1] < b.dt[0])
+					ft_rotat(&a, &b, 1);
 				else
-				{
-					if (b.l > 1 && b.dt[b.l - 1] < b.dt[0])
-						ft_rotat(&a, &b, 1);
-					else
-						ft_rotat(&a, NULL, 1);
-				}
+					ft_rotat(&a, NULL, 1);
 			}
-			med = arr[a.l / 2];
 		}
+		handle_5(&a, &b);
+		// }
 	}
-	printf("\033[0;34mafter sort\n");
-	for (int n = a.l - 1; n >= 0 ; n--)
-		printf("%d\n", a.dt[n]);
+	// for (int n = a.l - 1; n >= 0 ; n--)
+	// 	printf("\033[0;34m%d\n", a.dt[n]);
+	printf("\033[0;34m%d\n", a.sortd);
+	printf("\033[0;34m%d\n", a.l - 1);
 	free (a.dt);
 	free (b.dt);
 	free (arr);

@@ -6,7 +6,7 @@
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 22:16:04 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/02/13 22:24:13 by mchliyah         ###   ########.fr       */
+/*   Updated: 2022/02/14 18:17:27 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ void	refull_5(t_stack *a, t_stack *b)
 			}
 		}
 	}
+	// a->sortd = a->l - b->l - 1;
 }
 
 void	handle_5(t_stack *a, t_stack *b)
