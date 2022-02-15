@@ -1,38 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   initial_stack.c                                    :+:      :+:    :+:   */
+/*   ft_pop.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/11 17:20:12 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/02/15 18:32:55 by mchliyah         ###   ########.fr       */
+/*   Created: 2021/12/20 19:23:26 by mchliyah          #+#    #+#             */
+/*   Updated: 2022/02/09 15:56:18 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	initial_stack(t_stack stack, int ac, char **av)
+t_stack	ft_pop(t_stack *stack)
 {
 	int		i;
+	t_stack	new;
 
-	if (av)
+	i = ft_empty(stack->l);
+	if (i == 0)
+		exit(0);
+	new.l = stack->l - 1;
+	new.dt = malloc(sizeof(int) * new.l);
+	i = 0;
+	while (i < new.l)
 	{
-		stack.top = ac - 2;
-		stack.l = ac - 1;
-		stack.dt = malloc(sizeof(int *) * stack.l);
-		ft_check_av(ac, av);
-		i = -1;
-		while (++i < stack.l)
-			stack.dt[i] = ft_atoi(av[ac - i - 1]);
-		for (int n = stack.top; n >= 0 ; n--)
-			printf("%d\n", stack.dt[n]);
+		new.dt[i] = stack->dt[i];
+		i++;
 	}
-	if (!av)
-	{
-		stack.top = ac - 2;
-		stack.l = 0;
-		stack.dt = malloc(sizeof(int *) * stack.l);
-	}
-	return (stack);
+	free (stack->dt);
+	return (new);
 }
