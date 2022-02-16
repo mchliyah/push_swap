@@ -6,7 +6,7 @@
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 17:20:12 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/02/15 18:32:55 by mchliyah         ###   ########.fr       */
+/*   Updated: 2022/02/11 19:33:23 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ t_stack	initial_stack(t_stack stack, int ac, char **av)
 		for (int n = stack.top; n >= 0 ; n--)
 			printf("%d\n", stack.dt[n]);
 	}
-	if (!av)
+	else
 	{
 		stack.top = ac - 2;
 		stack.l = 0;
