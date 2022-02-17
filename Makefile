@@ -6,14 +6,14 @@
 #    By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/13 17:36:12 by mchliyah          #+#    #+#              #
-#    Updated: 2022/02/13 22:20:53 by mchliyah         ###   ########.fr        #
+#    Updated: 2022/02/17 01:41:07 by mchliyah         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
 CC = gcc
-#CFLAGS = -Werror -Wextra -Wall
+CFLAGS = -Werror -Wextra -Wall
 
 RM = rm -f
 
@@ -32,7 +32,7 @@ OBJECTS = $(subst .c,.o,$(FILES))
 all : $(NAME)
 
 $(NAME) :  $(OBJECTS)
-	$(CC) $(CFLAG) $(FILES) -o $(NAME)
+	$(CC) $(CFLAG) $(FILES) -fsanitize=address -g -o $(NAME)
 
 clean : 
 	$(RM) $(OBJECTS) $(BONUOBJ)

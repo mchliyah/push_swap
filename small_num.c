@@ -6,13 +6,13 @@
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 22:16:04 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/02/13 22:24:13 by mchliyah         ###   ########.fr       */
+/*   Updated: 2022/02/17 02:02:27 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	handle_3(t_stack *a, t_stack *b)
+void	handle_3(t_stack *a)
 {
 	if (a->l == 2)
 	{
@@ -73,6 +73,6 @@ void	handle_5(t_stack *a, t_stack *b)
 		ft_swap(a, b);
 	if (b->l > 1 && b->dt[b->l - 1] < b->dt[b->l - 2])
 		ft_swap(NULL, b);
-	handle_3(a, b);
+	handle_3(a);
 	refull_5(a, b);
 }

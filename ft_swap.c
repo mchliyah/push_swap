@@ -6,7 +6,7 @@
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 19:20:33 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/02/09 19:49:59 by mchliyah         ###   ########.fr       */
+/*   Updated: 2022/02/17 02:00:58 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@ void	swap(t_stack *stack)
 
 void	ft_swap(t_stack *stack_a, t_stack *stack_b)
 {
-	int	tmp;
-
 	if (stack_a && stack_a->l > 1 && stack_b && stack_b->l > 1)
 	{
 		swap(stack_a);

@@ -6,7 +6,7 @@
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 22:25:50 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/02/10 23:28:29 by mchliyah         ###   ########.fr       */
+/*   Updated: 2022/02/16 04:38:27 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,16 @@ void	ft_check_av(int ac, char **av)
 		}
 		i++;
 	}
+	// i = 1;
+	// while (i < ac - 1)
+	// {
+	// 	j = 1;
+	// 	while (j < ac - 1)
+	// 	{
+	// 		if (j + 1 < ac && ft_atoi(av[i]) == ft_atoi(av[j + 1]))
+	// 			exit(0);
+	// 		j++;
+	// 	}
+	// 	i++;
+	// }
 }
