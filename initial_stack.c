@@ -6,7 +6,7 @@
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 17:20:12 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/02/17 02:28:23 by mchliyah         ###   ########.fr       */
+/*   Updated: 2022/02/18 21:56:55 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ t_stack	*initial_stack(t_stack *stack, int ac, char **av)
 		i = -1;
 		while (++i < stack->l)
 			stack->dt[i] = ft_atoi(av[ac - i - 1]);
-		// for (int n = stack->top; n >= 0 ; n--)
+		// for (int n = stack->l - 1; n >= 0 ; n--)
 		// 	printf("%d\n", stack->dt[n]);
 	}
 	if (!av)

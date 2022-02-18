@@ -106,7 +106,7 @@ int	main(int ac, char **av)
 			}
 			else
 			{
-				while (index >= 0)
+				while ((index >= 0))
 				{
 					index--;
 					ft_rotat(NULL, b, -1);
@@ -115,6 +115,8 @@ int	main(int ac, char **av)
 			if (arr[a->l] == b->dt[b->l - 1])
 				ft_push(a, b, 'a');
 		}
+		for (int n = a->l - 1; n >= 0 ; n--)
+			printf("%d\n", a->dt[n]);
 	}
 	free (a->dt);
 	free (a);
