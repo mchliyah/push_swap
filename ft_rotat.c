@@ -6,7 +6,7 @@
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 19:21:26 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/02/18 21:28:30 by mchliyah         ###   ########.fr       */
+/*   Updated: 2022/02/18 23:53:45 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,17 +47,17 @@ void	snspositif(t_stack *stack_a, t_stack *stack_b)
 	if (stack_a && stack_b)
 	{
 		if (rot(stack_a) && rot(stack_b))
-			write(1, "\033[0;32mrr\n", 11);
+			write(1, "rr\n", 4);
 	}
 	else if (stack_a)
 	{
 		if (rot(stack_a))
-			write(1, "\033[0;32mra\n", 11);
+			write(1, "ra\n", 4);
 	}
 	else if (stack_b)
 	{
 		if (rot(stack_b))
-			write(1, "\033[0;32mrb\n", 11);
+			write(1, "rb\n", 4);
 	}
 }
 
@@ -66,17 +66,17 @@ void	snsnegatif(t_stack *stack_a, t_stack *stack_b)
 	if (stack_a && stack_b)
 	{
 		if (revrot(stack_a) && revrot(stack_b))
-			write(1, "\033[0;32mrrr\n", 11);
+			write(1, "rrr\n", 4);
 	}
 	else if (stack_a)
 	{
 		if (revrot(stack_a))
-			write(1, "\033[0;32mrra\n", 11);
+			write(1, "rra\n", 4);
 	}
 	else if (stack_b)
 	{
 		if (revrot(stack_b))
-			write(1, "\033[0;32mrrb\n", 11);
+			write(1, "rrb\n", 4);
 	}
 }
 
