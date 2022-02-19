@@ -6,11 +6,12 @@
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 11:03:21 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/02/10 23:22:36 by mchliyah         ###   ########.fr       */
+/*   Updated: 2022/02/19 18:37:14 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 static long	loop(const char *str, int signe)
 {
@@ -56,15 +57,10 @@ int	ft_atoi(const char *str)
 	else if (*str == '+')
 		str++;
 	result = loop(str, signe);
+	if (result > 2147483647 || result < -2147483648)
+	{
+		write(1, "error\n", 6);
+		exit(0);
+	}
 	return (result);
 }
-/*
-int main ()
-{
-	char test [] = "21474836472147483647";
-	printf("%d\n", ft_atoi(test));
-	printf("%d\n", atoi(test));
-
-	return (0);
-}
-*/

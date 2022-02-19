@@ -1,51 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_arg.c                                     :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/10 22:25:50 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/02/19 21:13:45 by mchliyah         ###   ########.fr       */
+/*   Created: 2022/02/19 18:48:41 by mchliyah          #+#    #+#             */
+/*   Updated: 2022/02/19 18:58:32 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_check_av(int ac, char **av)
+void	free_st(t_stack *a, t_stack *b, int *arr)
 {
-	int	i;
-	int	j;
-
-	i = 1;
-	if (ac <= 1)
-		exit (0);
-	while (i < ac)
+	if (a)
 	{
-		j = 0;
-		while (av[i][j] && i < ac)
-		{
-			if (j == 0 && av[i][j] == '-')
-				j++;
-			if (!(av[i][j] >= '0' && av[i][j] <= '9'))
-				exit (0);
-			j++;
-		}
-		i++;
+		free (a->dt);
+		free(a);
 	}
-}
-
-int	is_sorted(t_stack *s)
-{
-	int	i;
-
-	i = s->l - 1;
-	while (i > 0)
+	if (b)
 	{
-		if (s->dt[i] < s->dt[i - 1])
-			i--;
-		else
-			return (0);
+		free(b->dt);
+		free(b);
 	}
-	return (1);
+	free (arr);
 }

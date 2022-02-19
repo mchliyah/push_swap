@@ -6,7 +6,7 @@
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 19:22:32 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/02/18 23:54:11 by mchliyah         ###   ########.fr       */
+/*   Updated: 2022/02/19 13:48:37 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	ft_push(t_stack *stack_a, t_stack *stack_b, int c)
 		if (push(stack_a, stack_b->dt[stack_b->l - 1]))
 		{
 			stack_b->l = stack_b->l - 1;
-			write(1, "pa\n", 4);
+			write(1, "pa\n", 3);
 		}
 	}
 	else if (c == 'b' && stack_a->l != 0)
@@ -38,7 +38,7 @@ void	ft_push(t_stack *stack_a, t_stack *stack_b, int c)
 		if (push(stack_b, stack_a->dt[stack_a->l - 1]))
 		{
 			stack_a->l = stack_a->l - 1;
-			write(1, "pb\n", 4);
+			write(1, "pb\n", 3);
 		}
 	}
 }

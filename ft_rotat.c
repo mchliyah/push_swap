@@ -6,7 +6,7 @@
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 19:21:26 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/02/18 23:53:45 by mchliyah         ###   ########.fr       */
+/*   Updated: 2022/02/19 13:49:59 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,17 +47,17 @@ void	snspositif(t_stack *stack_a, t_stack *stack_b)
 	if (stack_a && stack_b)
 	{
 		if (rot(stack_a) && rot(stack_b))
-			write(1, "rr\n", 4);
+			write(1, "rr\n", 3);
 	}
 	else if (stack_a)
 	{
 		if (rot(stack_a))
-			write(1, "ra\n", 4);
+			write(1, "ra\n", 3);
 	}
 	else if (stack_b)
 	{
 		if (rot(stack_b))
-			write(1, "rb\n", 4);
+			write(1, "rb\n", 3);
 	}
 }
 

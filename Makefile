@@ -6,7 +6,7 @@
 #    By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/13 17:36:12 by mchliyah          #+#    #+#              #
-#    Updated: 2022/02/18 23:54:45 by mchliyah         ###   ########.fr        #
+#    Updated: 2022/02/19 20:18:18 by mchliyah         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,9 @@ FILES = initial_stack.c	\
 		ft_push.c 	\
 		ft_swap.c 	\
 		./libft/ft_memcpy.c	\
-		small_num.c	
+		small_num.c	\
+		free.c	\
+		complex_num.c
 OBJECTS = $(subst .c,.o,$(FILES))
 
 all : $(NAME)
