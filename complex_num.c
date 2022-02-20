@@ -6,11 +6,33 @@
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 23:56:13 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/02/19 21:12:23 by mchliyah         ###   ########.fr       */
+/*   Updated: 2022/02/20 22:00:29 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	is_ther(int *arr, int arg, int rang, int len)
+{
+	int	start;
+	int	end;
+
+	if (((len / 2) - rang) > 0)
+		start = (len / 2) - rang;
+	else
+		start = 0;
+	if (((len / 2) + rang) < len)
+		end = (len / 2) + rang;
+	else
+		end = len - 1;
+	while (start <= end)
+	{
+		if (arr[start] == arg)
+			return (1);
+	start++;
+	}
+	return (0);
+}
 
 int	get_index(int k, t_stack *b)
 {
@@ -52,41 +74,33 @@ void	push_a(t_stack *a, t_stack *b, int *arr)
 	}
 }
 
-void	push_b(t_stack *a, t_stack *b, int med, int n)
-{
-	while (a->l - 1 > ((n * a->top) / 8))
-	{
-		if (a->l && a->dt[a->l - 1] <= med)
-			ft_push(a, b, 'b');
-		if (b->l > 1 && a->dt[a->l - 1] > med && b->dt[b->l - 1] < b->dt[0])
-			ft_rotat(a, b, 1);
-		if (b->l && b->dt[b->l - 1] < b->dt[0])
-			ft_rotat(NULL, b, 1);
-		if (a->l > 1 && a->dt[a->l - 1] > med && a->dt[a->l - 2] > med)
-			ft_rotat(a, NULL, 1);
-		if ((a->l > 1 && b->l > 1)
-			&& (a->dt[a->l - 1] > a->dt[a->l - 2])
-			&& (b->dt[b->l - 1] < b->dt[b->l - 2]))
-			ft_swap(a, b);
-		else if (a->l > 1 && a->dt[a->l - 1] > a->dt[a->l - 2])
-			ft_swap(a, NULL);
-		else if (b->l > 1 && b->dt[b->l - 1] < b->dt[b->l - 2])
-			ft_swap(NULL, b);
-	}
-}
-
 void	sort_cmplx(t_stack *a, t_stack *b, int *arr)
 {
+	int	rang;
 	int	med;
-	int	n;
+	int	i;
 
-	n = 8;
-	while (--n >= 0)
+	med = arr[a->l / 2];
+	i = -1;
+	rang = 25;
+	while (i < b->top)
 	{
-		med = arr[n * a->top / 8];
-		push_b(a, b, med, n);
+		while (a->l && b->l <= (rang * 2))
+		{
+			if (is_ther(arr, a->dt[a->l - 1], rang, a->top + 1))
+			{
+				ft_push(a, b, 'b');
+				// if (b->dt[b->l - 1] < med
+				// 	&& !(is_ther(arr, a->dt[a->l - 1], rang, a->top + 1)))
+				// 	ft_rotat(a, b, 1);
+				if (b->dt[b->l - 1] < med)
+					ft_rotat(NULL, b, 1);
+			}
+			else
+				ft_rotat(a, NULL, 1);
+		}
+		rang = rang + 25;
+		i++;
 	}
 	push_a(a, b, arr);
-	// for (int n = a->l - 1; n >= 0 ; n--)
-	// 	printf("%d\n", a->dt[n]);
 }
