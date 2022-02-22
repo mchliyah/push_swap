@@ -6,7 +6,7 @@
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 23:56:13 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/02/20 22:00:29 by mchliyah         ###   ########.fr       */
+/*   Updated: 2022/02/22 17:27:36 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,33 +74,54 @@ void	push_a(t_stack *a, t_stack *b, int *arr)
 	}
 }
 
+void	push_b(t_stack *a, t_stack *b, int *arr, int rang)
+{
+	int	med;
+
+	med = arr[(a-> top + 1) / 2];
+	while (a->l && b->l <= (rang * 2))
+	{
+		if (is_ther(arr, a->dt[a->l - 1], rang, a->top + 1))
+		{
+			ft_push(a, b, 'b');
+			if ((b->l > 1 && a->l > 1 && (b->dt[b->l - 1] < med))
+				&& (!(is_ther(arr, a->dt[a->l - 1], rang, a->top + 1))))
+				ft_rotat(a, b, 1);
+			else if (b->l > 1 && b->dt[b->l - 1] < med)
+				ft_rotat(NULL, b, 1);
+			if (b->l > 1 && b->dt[b->l - 1] < b->dt[b->l - 2])
+				ft_swap(NULL, b);
+		}
+		else if (a->l > 1)
+			ft_rotat(a, NULL, 1);
+	}
+}
+
 void	sort_cmplx(t_stack *a, t_stack *b, int *arr)
 {
 	int	rang;
-	int	med;
 	int	i;
 
-	med = arr[a->l / 2];
 	i = -1;
-	rang = 25;
-	while (i < b->top)
+	if (a->l <= 150)
 	{
-		while (a->l && b->l <= (rang * 2))
+		rang = 12;
+		while (i < b->top)
 		{
-			if (is_ther(arr, a->dt[a->l - 1], rang, a->top + 1))
-			{
-				ft_push(a, b, 'b');
-				// if (b->dt[b->l - 1] < med
-				// 	&& !(is_ther(arr, a->dt[a->l - 1], rang, a->top + 1)))
-				// 	ft_rotat(a, b, 1);
-				if (b->dt[b->l - 1] < med)
-					ft_rotat(NULL, b, 1);
-			}
-			else
-				ft_rotat(a, NULL, 1);
+			push_b(a, b, arr, rang);
+			rang = rang + 10;
+			i++;
 		}
-		rang = rang + 25;
-		i++;
+	}
+	else if (a->l > 150)
+	{
+		rang = 30;
+		while (i < b->top)
+		{
+			push_b(a, b, arr, rang);
+			rang = rang + 30;
+			i++;
+		}
 	}
 	push_a(a, b, arr);
 }
