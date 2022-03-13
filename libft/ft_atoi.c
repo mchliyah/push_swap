@@ -6,7 +6,7 @@
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 11:03:21 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/02/19 18:37:14 by mchliyah         ###   ########.fr       */
+/*   Updated: 2022/02/23 18:13:55 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,5 @@ int	ft_atoi(const char *str)
 	else if (*str == '+')
 		str++;
 	result = loop(str, signe);
-	if (result > 2147483647 || result < -2147483648)
-	{
-		write(1, "error\n", 6);
-		exit(0);
-	}
 	return (result);
 }

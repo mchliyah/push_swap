@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mchliyah <mchliyah@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 11:45:25 by mchliyah          #+#    #+#             */
-/*   Updated: 2021/11/10 17:36:09 by mchliyah         ###   ########.fr       */
+/*   Updated: 2022/02/23 18:00:16 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,3 @@ int	ft_isdigit(int c)
 	}
 	return (0);
 }
-/*
-#include <stdio.h>
-int main ()
-{
-	int test = ' ';
-	printf("%d\n", ft_isdigit(test));
-
-	int tt = '1';
-	printf("%d\n", ft_isdigit(tt));
-}*/

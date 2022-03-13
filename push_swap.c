@@ -41,6 +41,13 @@ int	*getarr_sorted(t_stack *a)
 	return (arr);
 }
 
+void	error_repeet(t_stack *a, int *arr)
+{
+	free_st (a, NULL, arr);
+	write(2, "Error\n", 6);
+	exit(0);
+}
+
 int	main(int ac, char **av)
 {
 	t_stack	*a;
@@ -51,10 +58,11 @@ int	main(int ac, char **av)
 	b = NULL;
 	a = initial_stack(a, ac, av);
 	arr = getarr_sorted(a);
+	if (is_repeet(a))
+		error_repeet(a, arr);
 	if (is_sorted(a))
 	{
 		free_st (a, NULL, arr);
-		write(1, "stack is sorted\n", 16);
 		exit(0);
 	}
 	b = initial_stack(b, ac, NULL);

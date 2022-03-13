@@ -6,45 +6,12 @@
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 23:56:13 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/02/22 17:27:36 by mchliyah         ###   ########.fr       */
+/*   Updated: 2022/03/13 02:21:49 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	is_ther(int *arr, int arg, int rang, int len)
-{
-	int	start;
-	int	end;
-
-	if (((len / 2) - rang) > 0)
-		start = (len / 2) - rang;
-	else
-		start = 0;
-	if (((len / 2) + rang) < len)
-		end = (len / 2) + rang;
-	else
-		end = len - 1;
-	while (start <= end)
-	{
-		if (arr[start] == arg)
-			return (1);
-	start++;
-	}
-	return (0);
-}
-
-int	get_index(int k, t_stack *b)
-{
-	int	index;
-
-	index = b->l - 1;
-	while (index >= 0 && b->dt[index] != k)
-	{
-		index--;
-	}
-	return (index);
-}
+#include <stdio.h>
 
 void	push_a(t_stack *a, t_stack *b, int *arr)
 {
@@ -52,18 +19,41 @@ void	push_a(t_stack *a, t_stack *b, int *arr)
 
 	while (b->l != 0)
 	{
-		index = get_index(arr[a->l], b);
-		if (index > b->l / 2)
+		if (is_ther(b->dt, arr[a->l], b->l, b->l))
+			index = get_index(arr[a->l], b);
+		if (b->l != 0 && index > b->l / 2)
 		{
-			while (index < b->l - 1)
+			while (b->l != 0 && index < b->l - 1)
 			{
-				index++;
-				ft_rotat(NULL, b, 1);
+				if (!down_size(a, arr))
+				{
+					ft_push(a, b, 'a');
+					ft_rotat(a, NULL, 1);
+				}
+				else
+				{
+					if (b->dt[b->l - 1] > a->dt[0])
+					{
+						ft_push(a, b, 'a');
+						ft_rotat(a, NULL, 1);
+					}
+					else
+					{
+						index++;
+						ft_rotat(NULL, b, 1);
+					}
+				}
+				// if (index == (b->l - 2))
+				// {
+				// 	index++;
+				// 	ft_swap(NULL, b);
+				// 	break ;
+				// }
 			}
 		}
 		else
 		{
-			while ((index >= 0))
+			while (b->l != 0 && (index >= 0))
 			{
 				index--;
 				ft_rotat(NULL, b, -1);
@@ -71,6 +61,8 @@ void	push_a(t_stack *a, t_stack *b, int *arr)
 		}
 		if (arr[a->l] == b->dt[b->l - 1])
 			ft_push(a, b, 'a');
+		while (arr[a->l] == a->dt[0])
+			ft_rotat(a, NULL, -1);
 	}
 }
 
@@ -89,8 +81,6 @@ void	push_b(t_stack *a, t_stack *b, int *arr, int rang)
 				ft_rotat(a, b, 1);
 			else if (b->l > 1 && b->dt[b->l - 1] < med)
 				ft_rotat(NULL, b, 1);
-			if (b->l > 1 && b->dt[b->l - 1] < b->dt[b->l - 2])
-				ft_swap(NULL, b);
 		}
 		else if (a->l > 1)
 			ft_rotat(a, NULL, 1);
@@ -115,11 +105,11 @@ void	sort_cmplx(t_stack *a, t_stack *b, int *arr)
 	}
 	else if (a->l > 150)
 	{
-		rang = 30;
+		rang = 42;
 		while (i < b->top)
 		{
 			push_b(a, b, arr, rang);
-			rang = rang + 30;
+			rang = rang + 26;
 			i++;
 		}
 	}
