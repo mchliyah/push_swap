@@ -6,7 +6,7 @@
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 15:24:09 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/03/13 01:52:22 by mchliyah         ###   ########.fr       */
+/*   Updated: 2022/03/13 15:54:02 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ typedef struct s_stack
 	int	top;
 }	t_stack;
 
-t_stack	*initial_stack(t_stack *stack, int ac, char **av);
+t_stack	*initial_a(t_stack *a, int ac, char **av);
+t_stack	*initial_b(t_stack *a, t_stack *b, int ac);
 void	ft_push(t_stack *stack_a, t_stack *stack_b, int c);
 void	ft_rotat(t_stack *stack_a, t_stack *stack_b, int sens);
 void	ft_swap(t_stack *stack_a, t_stack *stack_b);

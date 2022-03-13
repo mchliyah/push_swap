@@ -6,12 +6,37 @@
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 23:56:13 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/03/13 02:21:49 by mchliyah         ###   ########.fr       */
+/*   Updated: 2022/03/13 13:43:42 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
+
+static void	find_up_big(t_stack *a, t_stack *b, int *arr, int index)
+{
+	while (b->l != 0 && index < b->l - 1)
+	{
+		if (!down_size(a, arr))
+		{
+			ft_push(a, b, 'a');
+			ft_rotat(a, NULL, 1);
+		}
+		else
+		{
+			if (b->dt[b->l - 1] > a->dt[0])
+			{
+				ft_push(a, b, 'a');
+				ft_rotat(a, NULL, 1);
+			}
+			else
+			{
+				index++;
+				ft_rotat(NULL, b, 1);
+			}
+		}
+	}
+}
 
 void	push_a(t_stack *a, t_stack *b, int *arr)
 {
@@ -22,35 +47,7 @@ void	push_a(t_stack *a, t_stack *b, int *arr)
 		if (is_ther(b->dt, arr[a->l], b->l, b->l))
 			index = get_index(arr[a->l], b);
 		if (b->l != 0 && index > b->l / 2)
-		{
-			while (b->l != 0 && index < b->l - 1)
-			{
-				if (!down_size(a, arr))
-				{
-					ft_push(a, b, 'a');
-					ft_rotat(a, NULL, 1);
-				}
-				else
-				{
-					if (b->dt[b->l - 1] > a->dt[0])
-					{
-						ft_push(a, b, 'a');
-						ft_rotat(a, NULL, 1);
-					}
-					else
-					{
-						index++;
-						ft_rotat(NULL, b, 1);
-					}
-				}
-				// if (index == (b->l - 2))
-				// {
-				// 	index++;
-				// 	ft_swap(NULL, b);
-				// 	break ;
-				// }
-			}
-		}
+			find_up_big(a, b, arr, index);
 		else
 		{
 			while (b->l != 0 && (index >= 0))
