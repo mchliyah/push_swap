@@ -41,9 +41,9 @@ int	*getarr_sorted(t_stack *a)
 	return (arr);
 }
 
-void	error_repeet(t_stack *a)
+void	error(t_stack *a, t_stack *b, int *arr)
 {
-	free_st (a, NULL, NULL);
+	free_st (a, b, arr);
 	write(2, "Error\n", 6);
 	exit(0);
 }
@@ -58,8 +58,8 @@ int	main(int ac, char **av)
 	b = NULL;
 	arr = NULL;
 	a = initial_a(a, ac, av);
-	if (is_repeet(a))
-		error_repeet(a);
+	if (!check(a, ac, av))
+		error(a, NULL, NULL);
 	if (is_sorted(a))
 	{
 		free_st (a, NULL, NULL);
