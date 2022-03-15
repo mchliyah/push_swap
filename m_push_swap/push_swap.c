@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
 int	*getarr_sorted(t_stack *a)
 {

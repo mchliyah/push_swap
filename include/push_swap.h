@@ -6,7 +6,7 @@
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 15:24:09 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/03/15 02:08:36 by mchliyah         ###   ########.fr       */
+/*   Updated: 2022/03/15 02:17:31 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 //biblio needed in fonctions
 # include <stdlib.h>
 # include <unistd.h>
-# include "libft/libft.h"
+# include "../libft/libft.h"
 
 typedef struct s_stack
 {

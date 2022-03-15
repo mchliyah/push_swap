@@ -6,11 +6,11 @@
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 22:07:50 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/03/15 01:44:08 by mchliyah         ###   ########.fr       */
+/*   Updated: 2022/03/15 02:23:44 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "../include/checker.h"
 
 void	error(t_stack *a, t_stack *b, char *str)
 {

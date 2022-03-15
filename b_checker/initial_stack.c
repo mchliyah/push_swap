@@ -6,11 +6,11 @@
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 17:20:12 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/03/15 02:06:30 by mchliyah         ###   ########.fr       */
+/*   Updated: 2022/03/15 02:24:48 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../include/checker.h"
 
 t_stack	*initial_a(t_stack *a, int ac, char **av)
 {

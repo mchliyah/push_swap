@@ -6,11 +6,11 @@
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 22:25:50 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/03/15 02:10:37 by mchliyah         ###   ########.fr       */
+/*   Updated: 2022/03/15 02:24:06 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "../include/checker.h"
 
 static int	check_int(int i, char **av)
 {

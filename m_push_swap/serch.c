@@ -6,11 +6,11 @@
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 01:49:40 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/03/13 01:50:36 by mchliyah         ###   ########.fr       */
+/*   Updated: 2022/03/15 02:21:09 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
 int	is_ther(int *arr, int arg, int rang, int len)
 {

@@ -6,12 +6,11 @@
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 23:56:13 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/03/13 18:10:59 by mchliyah         ###   ########.fr       */
+/*   Updated: 2022/03/15 02:20:16 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include <stdio.h>
+#include "../include/push_swap.h"
 
 static void	find_up_big(t_stack *a, t_stack *b, int *arr, int index)
 {

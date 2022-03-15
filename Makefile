@@ -6,7 +6,7 @@
 #    By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/13 17:36:12 by mchliyah          #+#    #+#              #
-#    Updated: 2022/03/15 02:08:10 by mchliyah         ###   ########.fr        #
+#    Updated: 2022/03/15 02:25:55 by mchliyah         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,29 +16,30 @@ CFLAGS = -Werror -Wextra -Wall
 
 RM = rm -f
 
-FILES = initial_stack.c	\
-		ft_check_arg.c	\
-		push_swap.c 	\
-		ft_rotat.c		\
-		ft_push.c 		\
-		ft_swap.c 		\
-		small_num.c		\
-		free.c			\
-		complex_num.c	\
-		serch.c
+FILES = \
+		./m_push_swap/initial_stack.c	\
+		./m_push_swap/ft_check_arg.c	\
+		./m_push_swap/push_swap.c 		\
+		./m_push_swap/ft_rotat.c		\
+		./m_push_swap/ft_push.c 		\
+		./m_push_swap/ft_swap.c 		\
+		./m_push_swap/small_num.c		\
+		./m_push_swap/free.c			\
+		./m_push_swap/complex_num.c		\
+		./m_push_swap/serch.c
 
 OBJ = $(FILES:.c=.o)
 
 B_FILES = \
-		./checker/checker.c				\
-		./checker/get_next_line_utils.c	\
-		./checker/get_next_line.c		\
-		./checker/initial_stack.c		\
-		./checker/ft_check_arg.c		\
-		./checker/ft_rotat.c			\
-		./checker/ft_push.c 			\
-		./checker/ft_swap.c 			\
-		./checker/free.c
+		./b_checker/checker.c				\
+		./b_checker/get_next_line_utils.c	\
+		./b_checker/get_next_line.c		\
+		./b_checker/initial_stack.c		\
+		./b_checker/ft_check_arg.c		\
+		./b_checker/ft_rotat.c			\
+		./b_checker/ft_push.c 			\
+		./b_checker/ft_swap.c 			\
+		./b_checker/free.c
 
 BOBJ = $(B_FILES:.c=.o)
 
@@ -70,7 +71,7 @@ bonus : $(BNM)
 
 $(BNM) : $(BOBJ)
 	@$(ALLIBFT)
-	@gcc $(BOBJ) $(ARLIB) -fsanitize=address -o ./checker/$(BNM)
+	@gcc $(BOBJ) $(ARLIB) -fsanitize=address -o $(BNM)
 	@echo "$(C_L_BLUE)[PUSH SWAP BONUS CREATED!]$(C_RES)"
 
 clean :
@@ -82,7 +83,7 @@ clean :
 fclean : clean
 	@$(FCLEANLIBFT)
 	@rm -f $(NAME)
-	@rm -f ./checker/$(BNM)
+	@rm -f $(BNM)
 	@echo "$(C_RED)[LIBFT ARCHIVE & PUSH SWAP EXECUTABLES DELETED!]$(C_RES)"
 
 re : fclean all

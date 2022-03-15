@@ -6,11 +6,11 @@
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 22:25:50 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/03/15 02:10:21 by mchliyah         ###   ########.fr       */
+/*   Updated: 2022/03/15 02:20:36 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
 static int	check_int(int i, char **av)
 {

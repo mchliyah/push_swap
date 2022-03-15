@@ -6,11 +6,11 @@
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 22:16:04 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/02/17 02:02:27 by mchliyah         ###   ########.fr       */
+/*   Updated: 2022/03/15 02:21:14 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
 void	handle_3(t_stack *a)
 {

@@ -6,7 +6,7 @@
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/27 14:47:02 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/03/15 00:51:58 by mchliyah         ###   ########.fr       */
+/*   Updated: 2022/03/15 02:22:13 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@
 # include <unistd.h>
 # include <string.h>
 # include <stdlib.h>
-# include <fcntl.h>
-# include <stdio.h>
 
 //FONCTIONS
 char		*get_next_line(int fd);
