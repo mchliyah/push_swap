@@ -6,7 +6,7 @@
 #    By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/13 17:36:12 by mchliyah          #+#    #+#              #
-#    Updated: 2022/03/15 02:25:55 by mchliyah         ###   ########.fr        #
+#    Updated: 2022/03/16 22:07:58 by mchliyah         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,14 +64,14 @@ all : $(NAME)
 
 $(NAME) : $(OBJ)
 	@$(ALLIBFT)
-	@gcc $(OBJ) $(ARLIB) -fsanitize=address -o $(NAME)
+	@gcc $(OBJ) $(ARLIB) -o $(NAME)
 	@echo "$(C_GREEN)[PUSH SWAP MANDATORY CREATED!]$(C_RES)"
 
 bonus : $(BNM)
 
 $(BNM) : $(BOBJ)
 	@$(ALLIBFT)
-	@gcc $(BOBJ) $(ARLIB) -fsanitize=address -o $(BNM)
+	@gcc $(BOBJ) $(ARLIB) -o $(BNM)
 	@echo "$(C_L_BLUE)[PUSH SWAP BONUS CREATED!]$(C_RES)"
 
 clean :

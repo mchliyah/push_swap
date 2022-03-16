@@ -6,7 +6,7 @@
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 22:07:50 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/03/15 02:23:44 by mchliyah         ###   ########.fr       */
+/*   Updated: 2022/03/16 21:15:07 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,27 +21,27 @@ void	error(t_stack *a, t_stack *b, char *str)
 
 static void	action(t_stack *a, t_stack *b, char *str)
 {
-	if (!ft_strncmp(str, "sa", 2))
+	if (!ft_strncmp(str, "sa", ft_strlen(str) - 1))
 		ft_swap(a, NULL);
-	else if (!ft_strncmp(str, "sb", 2))
+	else if (!ft_strncmp(str, "sb", ft_strlen(str) - 1))
 		ft_swap(NULL, b);
-	else if (!ft_strncmp(str, "ss", 2))
+	else if (!ft_strncmp(str, "ss", ft_strlen(str) - 1))
 		ft_swap(a, b);
-	else if (!ft_strncmp(str, "pa", 2))
+	else if (!ft_strncmp(str, "pa", ft_strlen(str) - 1))
 		ft_push(a, b, 'a');
-	else if (!ft_strncmp(str, "pb", 2))
+	else if (!ft_strncmp(str, "pb", ft_strlen(str) - 1))
 		ft_push(a, b, 'b');
-	else if (!ft_strncmp(str, "ra", 2))
+	else if (!ft_strncmp(str, "ra", ft_strlen(str) - 1))
 		ft_rotat(a, NULL, 1);
-	else if (!ft_strncmp(str, "rb", 2))
+	else if (!ft_strncmp(str, "rb", ft_strlen(str) - 1))
 		ft_rotat(NULL, b, 1);
-	else if (!ft_strncmp(str, "rra", 3))
+	else if (!ft_strncmp(str, "rra", ft_strlen(str) - 1))
 		ft_rotat(a, NULL, -1);
-	else if (!ft_strncmp(str, "rrb", 3))
+	else if (!ft_strncmp(str, "rrb", ft_strlen(str) - 1))
 		ft_rotat(NULL, b, -1);
-	else if (!ft_strncmp(str, "rrr", 3))
+	else if (!ft_strncmp(str, "rrr", ft_strlen(str) - 1))
 		ft_rotat(a, b, -1);
-	else if (!ft_strncmp(str, "rr", 2))
+	else if (!ft_strncmp(str, "rr", ft_strlen(str) - 1))
 		ft_rotat(a, b, 1);
 	else
 		error(a, b, str);

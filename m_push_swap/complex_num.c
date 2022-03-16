@@ -6,7 +6,7 @@
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 23:56:13 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/03/15 02:20:16 by mchliyah         ###   ########.fr       */
+/*   Updated: 2022/03/16 18:05:55 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,49 +16,62 @@ static void	find_up_big(t_stack *a, t_stack *b, int *arr, int index)
 {
 	while (b->l != 0 && index < b->l - 1)
 	{
-		if (!down_size(a, arr))
+		if (!a->d_size)
 		{
 			ft_push(a, b, 'a');
 			ft_rotat(a, NULL, 1);
+			a->d_size++;
+			// printf("[%d] %d\n", a->d_size, a->dt[a->l -1]);
+		}
+		else if (b->dt[b->l - 1] > a->dt[0])
+		{
+			ft_push(a, b, 'a');
+			ft_rotat(a, NULL, 1);
+			a->d_size++;
+			// printf("[%d] %d\n", a->d_size, a->dt[a->l -1]);
 		}
 		else
 		{
-			if (b->dt[b->l - 1] > a->dt[0])
-			{
-				ft_push(a, b, 'a');
-				ft_rotat(a, NULL, 1);
-			}
-			else
-			{
-				index++;
-				ft_rotat(NULL, b, 1);
-			}
+			index++;
+			ft_rotat(NULL, b, 1);
 		}
 	}
+	//printf("ehad%d\n", b->dt[b->l -1]);
 }
 
 void	push_a(t_stack *a, t_stack *b, int *arr)
 {
 	int	index;
 
-	while (b->l != 0)
+	a->d_size = 0;
+	while (b->l + a->d_size != 0)
 	{
-		if (is_ther(b->dt, arr[a->l], b->l, b->l))
-			index = get_index(arr[a->l], b);
-		if (b->l != 0 && index > b->l / 2)
-			find_up_big(a, b, arr, index);
+		index = get_index(arr[a->l - a->d_size], b);
+		 //printf("	******[%d]\n", arr[a->l - a->d_size]);
+		if (index == -1 && a->d_size)
+		{
+			ft_rotat(a, NULL, -1);
+			a->d_size--;
+			//printf("------1ll %d\n", a->dt[a->l -1]);
+		}
 		else
 		{
-			while (b->l != 0 && (index >= 0))
+			// if (index == -1)
+			// 	exit(0);
+			// printf("here %d\n", b->dt[index]);
+			if (b->l != 0 && index > b->l / 2)
+				find_up_big(a, b, arr, index);
+			else
 			{
-				index--;
-				ft_rotat(NULL, b, -1);
+				while (b->l != 0 && (index >= 0))
+				{
+					index--;
+					ft_rotat(NULL, b, -1);
+				}
 			}
 		}
-		if (arr[a->l] == b->dt[b->l - 1])
+		if (arr[a->l - a->d_size] == b->dt[b->l - 1])
 			ft_push(a, b, 'a');
-		while (arr[a->l] == a->dt[0])
-			ft_rotat(a, NULL, -1);
 	}
 }
 

@@ -6,11 +6,12 @@
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 01:49:40 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/03/15 02:21:09 by mchliyah         ###   ########.fr       */
+/*   Updated: 2022/03/16 17:44:44 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+#include <stdio.h>
 
 int	is_ther(int *arr, int arg, int rang, int len)
 {
@@ -39,24 +40,13 @@ int	get_index(int k, t_stack *b)
 	int	index;
 
 	index = b->l - 1;
-	while (index >= 0 && b->dt[index] != k)
+	if (is_ther(b->dt, k, b->l, b->l))
 	{
-		index--;
+		while (index >= 0 && b->dt[index] != k)
+		{
+			index--;
+		}
+		return (index);
 	}
-	return (index);
-}
-
-int	down_size(t_stack *a, int *arr)
-{
-	int	i;
-	int	cont;
-
-	cont = 0;
-	i = get_index(arr[0], a);
-	while (i > 0)
-	{
-		cont++;
-		i--;
-	}
-	return (cont);
+	return (-1);
 }
