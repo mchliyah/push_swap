@@ -6,7 +6,7 @@
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 23:56:13 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/03/16 18:05:55 by mchliyah         ###   ########.fr       */
+/*   Updated: 2022/03/18 02:13:56 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,11 @@ static void	find_up_big(t_stack *a, t_stack *b, int *arr, int index)
 {
 	while (b->l != 0 && index < b->l - 1)
 	{
-		if (!a->d_size)
+		if (!a->d_size || (b->dt[b->l - 1] > a->dt[0]))
 		{
 			ft_push(a, b, 'a');
 			ft_rotat(a, NULL, 1);
 			a->d_size++;
-			// printf("[%d] %d\n", a->d_size, a->dt[a->l -1]);
-		}
-		else if (b->dt[b->l - 1] > a->dt[0])
-		{
-			ft_push(a, b, 'a');
-			ft_rotat(a, NULL, 1);
-			a->d_size++;
-			// printf("[%d] %d\n", a->d_size, a->dt[a->l -1]);
 		}
 		else
 		{
@@ -36,7 +28,15 @@ static void	find_up_big(t_stack *a, t_stack *b, int *arr, int index)
 			ft_rotat(NULL, b, 1);
 		}
 	}
-	//printf("ehad%d\n", b->dt[b->l -1]);
+}
+
+static void	find_down_big(t_stack *a, t_stack *b, int *arr, int index)
+{
+	while (b->l != 0 && (index >= 0))
+	{
+		index--;
+		ft_rotat(NULL, b, -1);
+	}
 }
 
 void	push_a(t_stack *a, t_stack *b, int *arr)
@@ -47,28 +47,17 @@ void	push_a(t_stack *a, t_stack *b, int *arr)
 	while (b->l + a->d_size != 0)
 	{
 		index = get_index(arr[a->l - a->d_size], b);
-		 //printf("	******[%d]\n", arr[a->l - a->d_size]);
 		if (index == -1 && a->d_size)
 		{
 			ft_rotat(a, NULL, -1);
 			a->d_size--;
-			//printf("------1ll %d\n", a->dt[a->l -1]);
 		}
 		else
 		{
-			// if (index == -1)
-			// 	exit(0);
-			// printf("here %d\n", b->dt[index]);
 			if (b->l != 0 && index > b->l / 2)
 				find_up_big(a, b, arr, index);
 			else
-			{
-				while (b->l != 0 && (index >= 0))
-				{
-					index--;
-					ft_rotat(NULL, b, -1);
-				}
-			}
+				find_down_big(a, b, arr, index);
 		}
 		if (arr[a->l - a->d_size] == b->dt[b->l - 1])
 			ft_push(a, b, 'a');

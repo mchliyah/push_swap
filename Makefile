@@ -6,7 +6,7 @@
 #    By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/13 17:36:12 by mchliyah          #+#    #+#              #
-#    Updated: 2022/03/16 22:07:58 by mchliyah         ###   ########.fr        #
+#    Updated: 2022/03/17 22:04:12 by mchliyah         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,14 +76,14 @@ $(BNM) : $(BOBJ)
 
 clean :
 	@$(CLEANLIBFT)
-	@rm -f $(OBJ)
-	@rm -f $(BOBJ)
+	@$(RM) $(OBJ)
+	@$(RM) $(BOBJ)
 	@echo "$(C_RED)[PUSH SWAP OBJECTS DELETED!]$(C_RES)"
 
 fclean : clean
 	@$(FCLEANLIBFT)
-	@rm -f $(NAME)
-	@rm -f $(BNM)
+	@$(RM) $(NAME)
+	@$(RM) $(BNM)
 	@echo "$(C_RED)[LIBFT ARCHIVE & PUSH SWAP EXECUTABLES DELETED!]$(C_RES)"
 
 re : fclean all

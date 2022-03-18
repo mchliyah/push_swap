@@ -6,7 +6,7 @@
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 22:25:50 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/03/15 02:24:06 by mchliyah         ###   ########.fr       */
+/*   Updated: 2022/03/18 02:39:28 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ static int	ft_check_av(int ac, char **av)
 				return (0);
 			j++;
 		}
-		check_int(i, av);
+		if (!check_int(i, av))
+			return (0);
 	}
 	return (1);
 }
