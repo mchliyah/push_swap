@@ -6,13 +6,13 @@
 #    By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/13 17:36:12 by mchliyah          #+#    #+#              #
-#    Updated: 2022/03/17 22:04:12 by mchliyah         ###   ########.fr        #
+#    Updated: 2022/03/19 23:16:33 by mchliyah         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 BNM = checker
-CFLAGS = -Werror -Wextra -Wall
+FLAGS = -Werror -Wextra -Wall
 
 RM = rm -f
 
