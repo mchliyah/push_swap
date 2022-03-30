@@ -6,13 +6,13 @@
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 23:56:13 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/03/18 02:13:56 by mchliyah         ###   ########.fr       */
+/*   Updated: 2022/03/30 21:56:57 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-static void	find_up_big(t_stack *a, t_stack *b, int *arr, int index)
+static void	find_up_big(t_stack *a, t_stack *b, int index)
 {
 	while (b->l != 0 && index < b->l - 1)
 	{
@@ -30,7 +30,7 @@ static void	find_up_big(t_stack *a, t_stack *b, int *arr, int index)
 	}
 }
 
-static void	find_down_big(t_stack *a, t_stack *b, int *arr, int index)
+static void	find_down_big(t_stack *b, int index)
 {
 	while (b->l != 0 && (index >= 0))
 	{
@@ -55,9 +55,9 @@ void	push_a(t_stack *a, t_stack *b, int *arr)
 		else
 		{
 			if (b->l != 0 && index > b->l / 2)
-				find_up_big(a, b, arr, index);
+				find_up_big(a, b, index);
 			else
-				find_down_big(a, b, arr, index);
+				find_down_big(b, index);
 		}
 		if (arr[a->l - a->d_size] == b->dt[b->l - 1])
 			ft_push(a, b, 'a');
